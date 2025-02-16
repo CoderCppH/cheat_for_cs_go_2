@@ -6,29 +6,29 @@ namespace msc{
     private:
         HANDLE __Handle_ptr;
     public:
-        unique_handle() noexcept :unique_handle(nullptr) { }
-        unique_handle(HANDLE _OUT_HANDLE) noexcept{
+        unique_handle():unique_handle(nullptr) { }
+        unique_handle(HANDLE _OUT_HANDLE) {
             set(_OUT_HANDLE);
         }
-        void reset() inline noexcept {
+        void reset() {
             this->__Handle_ptr = nullptr;
         }
-        HANDLE* get() inline noexcept {
+        HANDLE* get() {
             return &this->__Handle_ptr;
         }
-        HANDLE* data() inline noexcept {
+        HANDLE* data() {
             return &this->__Handle_ptr;
         }
-        bool close_handle() noexcept{
+        bool close_handle() {
             BOOL _b_flags = CloseHandle(this->__Handle_ptr);
             this->__Handle_ptr = nullptr;
             return _b_flags;
         }
-        void set(HANDLE _OUT_HANDLE) noexcept{
+        void set(HANDLE _OUT_HANDLE) {
             close_handle();
             this->__Handle_ptr = _OUT_HANDLE;
         }
-        ~unique_handle() noexcept {
+        ~unique_handle()  {
             close_handle();
         }
     };
