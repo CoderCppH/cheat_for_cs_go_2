@@ -1,12 +1,10 @@
 #pragma once
 #include <Windows.h>
 #include "../scripts/unique_handle.h"
-namespace msc
-{
-    class memory_stream
-    {
+namespace msc {
+    class memory_stream {
     private:
-        msc::unique_handle __smart_handle { };
+        unique_handle __smart_handle { };
     public:
         memory_stream(HANDLE _OUT_HANDLE) {
             __smart_handle = { _OUT_HANDLE };

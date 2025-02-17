@@ -1,8 +1,7 @@
 #pragma once
 #include <Windows.h>
-namespace msc{
-    class unique_handle
-    {
+namespace msc {
+    class unique_handle {
     private:
         HANDLE __Handle_ptr;
     public:
@@ -13,7 +12,7 @@ namespace msc{
         void reset() {
             this->__Handle_ptr = nullptr;
         }
-        HANDLE* get() {
+        HANDLE get() {
             return &this->__Handle_ptr;
         }
         HANDLE* data() {
